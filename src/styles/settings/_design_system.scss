@@ -1,0 +1,11 @@
+// package necesary to do math funcintons on sass
+@use 'sass:math';
+
+// Necesary imports to use FontStyle engine outside styles folder
+@import '../global/functions';
+@import '../global/mixins';
+@import '../global/fonts';
+
+// Necesary imports to use ThemedStyles engine outside styles folder
+@import './settings';
+@import '../global/colors';

@@ -1,0 +1,116 @@
+@mixin FontSmoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  text-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
+}
+
+@mixin Focus {
+  &:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@mixin Elevation1 {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.27);
+}
+
+@mixin Elevation2 {
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.36);
+}
+
+@mixin Elevation3 {
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+}
+
+@mixin Hover(
+  $HTDuration: 0.5s,
+  $HOpacity: 0.7,
+  $HShadow: null,
+  $HDecoration: none,
+  $HColor: null,
+  $HBackground: null,
+  $HTProperty: opacity
+) {
+  @include Transition($TDuration: $HTDuration, $TProperty: $HTProperty);
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: $HOpacity;
+
+    @if $HShadow == shadow {
+      @include Themer(box-shadow, Black, '0px 0px 20px');
+    }
+    text-decoration: $HDecoration;
+
+    @if $HColor != null {
+      @include Themer(color, $HColor);
+    }
+
+    @if $HBackground != null {
+      @include Themer(background, $HBackground);
+    }
+  }
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: ttf) {
+  $src: null;
+  $extmods: (
+    eot: '?' + str-replace($name, ' ', '_'),
+  );
+  $formats: (
+    ttf: 'truetype',
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+        map-has-key($extmods, $ext),
+        $ext + map-get($extmods, $ext),
+        $ext
+    );
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+@mixin responsive-font(
+  $min-vw,
+  $max-vw,
+  $min-font-size,
+  $max-font-size,
+  $line-height-min,
+  $line-height-max
+) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+  $u5: unit($line-height-min);
+  $u6: unit($line-height-max);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 and $u1 == $u5 and $u1 == $u6 {
+    & {
+      font-size: pxtorem($min-font-size);
+      line-height: lhtorem($line-height-min);
+
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{units($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{units($max-vw - $min-vw)}));
+      }
+
+      @media screen and (min-width: $max-vw) {
+        font-size: pxtorem($max-font-size);
+        line-height: lhtorem($line-height-max);
+      }
+    }
+  }
+}

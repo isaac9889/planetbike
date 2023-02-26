@@ -1,0 +1,57 @@
+@mixin FontStyle(
+  $FontKind: Base,
+  $FW: null,
+  $FSMIN: null,
+  $FSMAX: null,
+  $LS: null,
+  $LHMIN: null,
+  $LHMAX: null
+) {
+  @if map-has-key($TypographyStyles, $FontKind) {
+    $query: map-get($TypographyStyles, $FontKind);
+
+    $FF: nth($query, 1);
+
+    @if not $FSMIN {
+      $FSMIN: nth($query, 2);
+    }
+
+    @if not $FSMAX {
+      $FSMAX: nth($query, 3);
+    }
+
+    @if not $LS {
+      $LS: nth($query, 4);
+    }
+
+    @if not $LHMAX {
+      $LHMAX: nth($query, 3);
+
+      @if $FSMAX {
+        $LHMAX: $FSMAX;
+      }
+    }
+
+    @if not $LHMIN {
+      $LHMIN: nth($query, 4);
+
+      @if $FSMIN {
+        $LHMIN: $FSMIN;
+      }
+    }
+
+    @if ($FF == sans-serif) {
+      font-family: unquote($FF);
+    } @else {
+      font-family: $FF, sans-serif;
+    }
+
+    font-weight: inherit;
+
+    @include responsive-font(320px, 1440px, $FSMIN, $FSMAX, $LHMIN, $LHMAX);
+
+    letter-spacing: $LS;
+
+    @include FontSmoothing;
+  }
+}

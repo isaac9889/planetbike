@@ -1,0 +1,5 @@
+@mixin ColorVariations {
+
+  @include ThemedStyles(rootcolor, N0, "50"); //This compiles to --UCR-N050
+  
+}

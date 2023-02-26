@@ -1,0 +1,119 @@
+$skin: $UINameSpace !default;
+
+@mixin ThemedStyles($Property, $ColorCat, $ExtraValues:"") {
+
+  $Properties: (
+    background,
+    color,
+    border,
+    fill,
+    stroke,
+    border-top,
+    border-right,
+    border-left,
+    border-bottom,
+    box-shadow,
+    background-color,
+    drop-shadow,
+    text-shadow,
+    linear-gradient,
+    alpha-color,
+    alpha-background,
+    rootcolor,
+  );
+
+  @if list-has-key($Properties, $Property) {
+
+    $Colorquery: map-deep-get($Palettes, $skin, $ColorCat);
+
+    & {
+      @if $ExtraValues == before {
+
+        &::before {
+          content: '';
+          #{$Property}: var(#{"--"+$skin}-#{$ColorCat});
+          @content;
+
+        }
+      } @else if $ExtraValues == after {
+
+        &::after {
+          content: '';
+          #{$Property}: var(#{"--"+$skin}-#{$ColorCat});
+          @content;
+
+        }
+      } @else if $Property == linear-gradient {
+
+        $Colors: ();
+
+        @for $i from 1 through length($ColorCat) {
+
+          $color: map-deep-get($Palettes, $skin, nth($ColorCat, $i));
+
+          $Colors: append($Colors, #{"hsl("+$color+")"}, comma);
+
+        }
+
+        @if $ExtraValues == "" {
+
+          $ExtraValues: "180deg";
+
+        }
+
+        background: linear-gradient(unquote($ExtraValues), $Colors);
+
+      } @else if $Property == alpha-color {
+
+        $name: map-deep-get($Palettes, $skin, $ColorCat);
+
+        $value-h: nth($name, 1);
+        $value-s: nth($name, 2);
+        $value-l: nth($name, 3);
+        $value-a: $ExtraValues;
+
+        #{"--"+$skin}-#{$ColorCat}-#{"A"+$ExtraValues}: #{"hsla("+$value-h}#{","+$value-s+"%"}#{","+$value-l+"%"}#{",."+$value-a+")"};
+
+        color: var(#{"--"+$skin}-#{$ColorCat}-#{"A"+$ExtraValues});
+
+      } @else if $Property == alpha-background {
+
+        $name: map-deep-get($Palettes, $skin, $ColorCat);
+
+        $value-h: nth($name, 1);
+        $value-s: nth($name, 2);
+        $value-l: nth($name, 3);
+        $value-a: $ExtraValues;
+
+        #{"--"+$skin}-#{$ColorCat}-#{"A"+$ExtraValues}: #{"hsla("+$value-h}#{","+$value-s+"%"}#{","+$value-l+"%"}#{",."+$value-a+")"};
+
+        background: var(#{"--"+$skin}-#{$ColorCat}-#{"A"+$ExtraValues});
+
+      } @else if $Property == rootcolor {
+
+        $name: map-deep-get($Palettes, $skin, $ColorCat);
+
+        $value-h: nth($name, 1);
+        $value-s: nth($name, 2);
+        $value-l: nth($name, 3);
+        $value-a: $ExtraValues;
+
+        #{"--"+$skin}-#{""+$ColorCat}#{$ExtraValues}: #{"hsla("+$value-h}#{","+" "+$value-s+"%"}#{","+" "+$value-l+"%"}#{","+" "+$value-a+"%)"};
+
+      } @else if $Property == drop-shadow {
+
+        filter: drop-shadow(var(#{"--"+$skin}-#{$ColorCat}) unquote($ExtraValues));
+
+      } @else {
+
+        #{$Property}: var(#{"--"+$skin}-#{$ColorCat}) unquote($ExtraValues);
+
+      }
+
+    }
+
+  } @else {
+    @error "'#{$Property}' is not an allowed property. (ThemedStyles only allow the next properties background, color, border, fill, stroke, text-shadow and box-shadow).";
+  }
+
+}

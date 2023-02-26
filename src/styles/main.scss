@@ -1,0 +1,9 @@
+@use 'sass:math';
+
+@import './settings/settings';
+@import './global/functions';
+@import './global/mixins';
+@import './global/fonts';
+@import './global/colors';
+@import './reset/reset';
+@import './components/components';

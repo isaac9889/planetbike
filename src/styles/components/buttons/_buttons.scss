@@ -1,0 +1,48 @@
+.Buttons {
+
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include Breakpoint(Desktop) {
+
+    flex-wrap: nowrap;
+    
+  }
+
+ }
+
+ .Button {
+
+  padding: 20px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 41px;
+  min-width: 220px;
+
+  @include FontStyle(Callout);
+  @include ThemedStyles(color, N0);
+
+  &:hover {
+
+    opacity: .8;
+
+  }
+
+  
+  @include ThemedStyles(background, PB700);
+  @include ThemedStyles(color, N0);
+
+  &__Outlined {
+    @extend .Button;
+
+    @include ThemedStyles(background, N0);
+    @include ThemedStyles(border, PB700, "2px solid");
+    @include FontStyle(Callout);
+    @include ThemedStyles(color, PB700);
+  
+  }
+ }

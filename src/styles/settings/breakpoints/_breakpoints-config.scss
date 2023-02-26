@@ -1,0 +1,64 @@
+$Breakpoints: (
+  Smartphone: (320px),
+  SmartphoneHD: (414px),
+  SmartphoneFHD: (415px),
+  Tablet: (768px),
+  TabletFHD: (1023px),
+  Desktop: (1024px),
+  DesktopHD: (1280px),
+  DesktopFHD: (1440px),
+  Retina: (1600px),
+  FullHD: (1919px)
+);
+
+@mixin Breakpoint($Device) {
+  @if map-has-key($Breakpoints, $Device) {
+
+    $DeviceQuery: map-get($Breakpoints, $Device);
+
+    @if $Device == Smartphone {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == SmartphoneHD {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == SmartphoneFHD {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == Tablet {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == TabletFHD {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == Desktop {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == DesktopHD {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == DesktopFHD {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == Retina {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    } @else if $Device == FullHD {
+      @media (min-width: $DeviceQuery) {
+        @content;
+      }
+    }
+
+  } @else {
+    @warn ' !!! The Breakpoint  #{$Device}, doesn\'t exist, please verify !!! El Breakpoint #{$Device} no existe, por favor verifica !!!';
+  }
+}
