@@ -2,8 +2,7 @@
 
   display: flex;
   align-items: center;
-  height: -webkit-fill-available;
-  height: -moz-available;
+  height: fit-content;
   min-height: calc(100vh - 76px);
   padding: 0px 20px;
   justify-content: center;

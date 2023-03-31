@@ -136,6 +136,7 @@
   .Card__ContentTextCtr {
     
     gap: 12px;
+    max-height: fit-content;
 
     @include Breakpoint(Desktop) {
   
@@ -177,18 +178,18 @@
     flex-direction: column-reverse;
     justify-content: flex-end;
     align-items: center;
-    height: -webkit-fill-available;
-    height: -moz-available;
-    max-height: -webkit-fill-available;
-    max-height: -moz-available;
+    height: fit-content;
+    max-height: 504px;
     width: -webkit-fill-available;
     width: -moz-available;
+    flex: 1;
 
 
     @include Breakpoint(Desktop) {
 
       flex-direction: row;
       justify-content: center;
+      max-height: 610px;
       
     }
 
@@ -348,12 +349,6 @@
     height: -webkit-fill-available;
     height: -moz-available;
     flex: 1;
-
-    @include Breakpoint(Desktop) {
-      
-      flex: inherit;
-  
-    }
     
   }
 
