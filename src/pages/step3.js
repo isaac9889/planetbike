@@ -10,11 +10,15 @@ const StepTwoFour = () => (
     <div className="Card">
       <div className="Card__Content">
         <div className="Card__ContentTextCtr">
-          <h1 className="Card__ContentTitle"> 
-            Step 3 | <span>Functions & Specs</span>
-          </h1>
+          <div className="Card__ContentTitleCtr">
+            <h1 className="Card__ContentTitle">
+              Know your product | <span>Functions & Specs</span>
+            </h1>
+            <Link to="/step1" className="Button__Outlined" >See instructions again</Link>
+          </div>
+          <span className="Card__Divider" />
           <p className="Card__ContentText">
-            <strong>Know your product</strong>
+            <strong>Congratulations!</strong> Please review all the specs of your new & successfully installed <strong>Protege 8.0 & 9.0</strong>
           </p>
           <div className="Card__Image">
             <StaticImage
@@ -28,10 +32,6 @@ const StepTwoFour = () => (
             />
           </div>
         </div>
-      </div>
-      <div className="Buttons">
-          <Link to="/step2-4" className="Button__Outlined" >Go back</Link>
-          <Link to="/" className="Button">Finish</Link>
       </div>
     </div>
   </Layout>

@@ -13,14 +13,9 @@ const StepTwoThree = () => (
           <h1 className="Card__ContentTitle">
             Step 2 | <span>Mounting instructions</span>
           </h1>
+          <span className="Card__Divider" />
           <p className="Card__ContentText">
-            <strong>Step 4</strong>
-          </p>
-          <p className="Card__ContentText-Left">
-            Attach the <strong>computer bracket</strong> to the <strong>handlebars</strong> near the stern. Use any combination of <strong>rubber shims</strong> to fit different diameter handlebars.
-          </p>
-          <p className="Card__ContentText-Left">
-            Tighten the screw so <strong>the bracket will not rotate</strong>  on the handlebars. Slide the computer head into the bracket <strong>until it "snaps"</strong>  into place.
+            <strong>Step 4 |</strong> Attach the <strong>computer bracket</strong> to the <strong>handlebars</strong> near the stern. Use any combination of <strong>rubber shims</strong> to fit different diameter handlebars.
           </p>
           <div className="Card__Image">
             <StaticImage
@@ -33,12 +28,16 @@ const StepTwoThree = () => (
               style={{ marginBottom: `var(--space-3)` }}
             />
           </div>
+          <p className="Card__ContentText">
+            Tighten the screw so <strong>the bracket will not rotate</strong>  on the handlebars. Slide the computer head into the bracket <strong>until it "snaps"</strong>  into place.
+          </p>
         </div>
       </div>
       <div className="Buttons">
           <Link to="/step2-2" className="Button__Outlined" >Go back</Link>
           <Link to="/step2-4" className="Button">Continue</Link>
       </div>
+      <progress id="progress_form" max="100" value="84" />
     </div>
   </Layout>
 )

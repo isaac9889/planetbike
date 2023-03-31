@@ -1,13 +1,13 @@
 .Buttons {
 
   display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 8px;
   justify-content: center;
 
   @include Breakpoint(Desktop) {
 
     flex-wrap: nowrap;
+    gap: 24px;
     
   }
 
@@ -15,16 +15,26 @@
 
  .Button {
 
-  padding: 20px 12px;
+  padding: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  height: 41px;
-  min-width: 220px;
+  height: 38px;
+  min-width: 145px;
 
-  @include FontStyle(Callout);
+  @include FontStyle(Caption2Highlight, $LS: 0px);
   @include ThemedStyles(color, N0);
+
+  @include Breakpoint(Desktop) {
+    
+    padding: 20px 12px;
+    min-width: 257px;
+    height: 41px;
+
+    @include FontStyle(CalloutHighlight);
+    
+  }
 
   &:hover {
 
@@ -41,8 +51,13 @@
 
     @include ThemedStyles(background, N0);
     @include ThemedStyles(border, PB700, "2px solid");
-    @include FontStyle(Callout);
+    @include FontStyle(Caption2Highlight);
     @include ThemedStyles(color, PB700);
+
+    @include Breakpoint(Desktop) {  
+      @include FontStyle(CalloutHighlight);
+      
+    }
   
   }
  }

@@ -2,10 +2,10 @@ $Font-1: 'Montserrat';
 
 // Font 1
 
-@include font-face(#{$Font-1}-Light, '/fonts/#{$Font-1}-Light');
-@include font-face(#{$Font-1}-Regular, '/fonts/#{$Font-1}-Regular');
-@include font-face(#{$Font-1}-Bold, '/fonts/#{$Font-1}-Bold');
-@include font-face(#{$Font-1}-Black, '/fonts/#{$Font-1}-Black');
+@include font-face(#{$Font-1}-Light, '../fonts/#{$Font-1}-Light');
+@include font-face(#{$Font-1}-Regular, '../fonts/#{$Font-1}-Regular');
+@include font-face(#{$Font-1}-Bold, '../fonts/#{$Font-1}-Bold');
+@include font-face(#{$Font-1}-Black, '../fonts/#{$Font-1}-Black');
 
 $f-2xxs: 11px;
 $f-xxs: 12px;
@@ -180,7 +180,7 @@ $TypographyStyles: (
   //22px
   Title1Highlight:
     (
-      #{$Font-1}-Black,
+      #{$Font-1}-Bold,
       $f-xxl,
       $f-xxl,
       0px,
@@ -194,6 +194,21 @@ $TypographyStyles: (
       0px,
     ),
   //34px
+  Caption2Light: (
+    #{$Font-1}-Light,
+    $f-2xxs,
+    $f-2xxs,
+    0.5px,
+  ),
+  //11px
+  Title3Light:
+  (
+    #{$Font-1}-Light,
+    $f-l,
+    $f-l,
+    0px,
+  ),
+  //20px
 );
 
 @import './engines/fontstyle';

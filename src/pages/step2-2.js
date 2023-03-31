@@ -13,14 +13,9 @@ const StepTwoTwo = () => (
           <h1 className="Card__ContentTitle">
             Step 2 | <span>Mounting instructions</span>
           </h1>
+          <span className="Card__Divider" />
           <p className="Card__ContentText">
-            <strong>Step 3</strong>
-          </p>
-          <p className="Card__ContentText-Left">
-            Attach the wire harness to the <strong>fork using quick ties.</strong> Excess wire can be wrapped around <strong>brake cable</strong> before securing bracket to handlebar. 
-          </p>
-          <p className="Card__ContentText-Left">
-            <strong>Note:</strong> Allow slight wire slack between <strong>fork and brake cable</strong> or turning handlebars.
+            <strong>Step 3 |</strong> Attach the wire harness to the <strong>fork using quick ties.</strong> Excess wire can be wrapped around <strong>brake cable</strong> before securing bracket to handlebar. 
           </p>
           <div className="Card__Image">
             <StaticImage
@@ -33,12 +28,16 @@ const StepTwoTwo = () => (
               style={{ marginBottom: `var(--space-3)` }}
             />
           </div>
+          <p className="Card__ContentText">
+            <strong>Note:</strong> Allow slight wire slack between <strong>fork and brake cable</strong> or turning handlebars.
+          </p>
         </div>
       </div>
       <div className="Buttons">
           <Link to="/step2-1" className="Button__Outlined" >Go back</Link>
           <Link to="/step2-3" className="Button">Continue</Link>
       </div>
+      <progress id="progress_form" max="100" value="70" />
     </div>
   </Layout>
 )

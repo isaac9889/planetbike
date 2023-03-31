@@ -6,12 +6,24 @@
   padding: 0px 20px;
   justify-content: space-between;
 
-   @include ThemedStyles(background, T900);
+   @include ThemedStyles(background, SR700);
    @include ThemedStyles(color, N0);
 
    &__Title {
 
-    @include FontStyle(Title3Highlight);
+    @include FontStyle(Title3Light);
+
+    strong {
+      @include FontStyle(Title3Highlight);
+    } 
+
+   }
+
+   &__TextCtr {
+
+    align-items: center;
+    display: flex;
+    gap: 12px;
 
    }
 

@@ -13,11 +13,9 @@ const StepOneTwo = () => (
           <h1 className="Card__ContentTitle">
             Step 1 | <span>Identify parts</span>
           </h1>
+          <span className="Card__Divider" />
           <p className="Card__ContentText">
           Please asure that you have <strong>all the parts</strong> required for the ensamble:
-          </p>
-          <p className="Card__ContentText">
-            2. Computer case
           </p>
           <div className="Card__Image">
             <StaticImage
@@ -30,12 +28,16 @@ const StepOneTwo = () => (
               style={{ marginBottom: `var(--space-3)` }}
             />
           </div>
+          <p className="Card__ContentText-Light">
+            2. Computer case
+          </p>
         </div>
       </div>
       <div className="Buttons">
           <Link to="/step1" className="Button__Outlined" >Go back</Link>
           <Link to="/step1-3" className="Button">Continue</Link>
       </div>
+      <progress id="progress_form" max="100" value="14" />
     </div>
   </Layout>
 )

@@ -1,3 +1,152 @@
+.CardCtr {
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px 0px;
+  justify-content: center;
+
+  @include Breakpoint(Desktop) {
+
+    flex-direction: row;
+    gap: 24px;
+    padding: 0px;
+    
+  }
+
+
+}
+
+.CardImage {
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, .25);
+  border-radius: 20px 20px 0px 0px;
+  height: 339px;
+  overflow: hidden;
+  position: relative;
+  width: 339px;
+
+  @include Breakpoint(Desktop) {
+
+    border-radius: 20px 0px 0px 20px;
+    height: 632px;
+    width: 632px;
+    
+  }
+
+  &__Background {
+    
+    height: -webkit-fill-available;
+    height: -moz-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
+
+  }
+
+  &__TextCtr {
+
+    background: rgba(255, 255, 255, .6);
+    bottom: 40px;
+    height: fit-content;
+    padding: 8px;
+    position: absolute;
+    text-align: center;
+    width: -webkit-fill-available;
+    width: -moz-available;
+
+    @include Breakpoint(Desktop) {
+  
+      padding: 12px;
+      
+    }
+
+  }
+
+  &__Text {
+    
+    @include FontStyle(Callout);
+
+    @include Breakpoint(Desktop) {
+  
+      @include FontStyle(Title1);
+      
+    }
+
+    strong {
+
+      @include FontStyle(CalloutHighlight);
+
+      @include Breakpoint(Desktop) {
+    
+        @include FontStyle(Title1Highlight);
+        
+      }
+
+    }
+
+  }
+
+  &__Text-Red {
+
+    @include ThemedStyles(color, PR700);
+
+    strong {
+
+      @include FontStyle(CalloutHighlight);
+
+      @include Breakpoint(Desktop) {
+    
+        @include FontStyle(Title1Highlight);
+        
+      }
+
+    }
+
+  }
+
+}
+
+.CardIndex {
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, .25);
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 339px;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+  width: 339px;
+
+  @include ThemedStyles(background, N0);
+
+  @include Breakpoint(Desktop) {
+
+    border-radius: 0px 20px 20px 0px;
+    justify-content: center;
+    gap: 44px;
+    padding: 40px;
+    height: 632px;
+    width: 632px;
+    
+  }
+
+  .Card__ContentTextCtr {
+    
+    gap: 12px;
+
+    @include Breakpoint(Desktop) {
+  
+      gap: 24px;
+      
+    }
+
+  }
+
+}
+
 .Card {
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, .25);
@@ -6,24 +155,52 @@
   gap: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 369px;
+  height: 690px;
 
   @include ThemedStyles(background, N0);
+
+
+  @include Breakpoint(Desktop) {
+    
+    width: 1288px;
+    height: 800px;
+    
+  }
 
   &__Content {
     
     display: flex;
     gap: 24px;
     flex-direction: column-reverse;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: -moz-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
+
 
     @include Breakpoint(Desktop) {
 
       flex-direction: row;
+      justify-content: center;
       
     }
+
+  }
+
+  &__Divider {
+
+    height: 1px;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    
+    @include ThemedStyles(background, SG700);
 
   }
   
@@ -32,16 +209,64 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: -moz-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
 
   }
 
   &__ContentText {
     
-    @include FontStyle(Callout);
+    max-width: -webkit-fill-available;
+    max-width: -moz-available;
     text-align: center;
+    
+    @include FontStyle(Caption2);
+
+    @include Breakpoint(Desktop) {
+  
+      @include FontStyle(Title3);
+      
+    }
 
     strong {
-      @include FontStyle(CalloutHighlight);
+      @include FontStyle(Caption2Highlight);
+
+      @include Breakpoint(Desktop) {
+    
+        @include FontStyle(Title3Highlight);
+        
+      }
+
+    }
+
+  }
+
+  &__ContentText-Light {
+    
+    max-width: -webkit-fill-available;
+    max-width: -moz-available;
+    text-align: center;
+    
+    @include FontStyle(Caption2Light);
+
+    @include Breakpoint(Desktop) {
+  
+      @include FontStyle(Title3Light);
+      
+    }
+
+    strong {
+      @include FontStyle(Caption2Highlight);
+
+      @include Breakpoint(Desktop) {
+    
+        @include FontStyle(Title3Highlight);
+        
+      }
 
     }
 
@@ -49,11 +274,23 @@
 
   &__ContentText-Left {
     
-    @include FontStyle(Callout);
+    @include FontStyle(Caption2);
     text-align: left;
 
+    @include Breakpoint(Desktop) {
+  
+      @include FontStyle(Title3);
+      
+    }
+
     strong {
-      @include FontStyle(CalloutHighlight);
+      @include FontStyle(Caption2Highlight);
+
+      @include Breakpoint(Desktop) {
+    
+        @include FontStyle(Title3Highlight);
+        
+      }
 
     }
 
@@ -61,13 +298,46 @@
 
   &__ContentTitle {
 
-    text-align: center;
+    text-align: left;
+    margin: 0px;
 
     @include FontStyle(Title1Highlight);
+    @include ThemedStyles(color, PR700);
 
     span {
       @include FontStyle(Title1Sub);
+      @include ThemedStyles(color, T900);
     }
+  }
+
+  &__ContentTitleCtr {
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include Breakpoint(Desktop) {
+      
+      flex-wrap: nowrap;
+
+    }
+
+    .Button__Outlined {
+      
+      min-width: -webkit-fill-available;
+      min-width: -moz-available;
+
+      @include ThemedStyles(border, PR700, "2px solid");
+      @include ThemedStyles(color, PR700);
+
+      @include Breakpoint(Desktop) {
+        
+        min-width: 257px;
+  
+      }
+
+    }
+
   }
 
   &__Image {
@@ -75,7 +345,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    flex: 1;
+
+    @include Breakpoint(Desktop) {
+      
+      flex: inherit;
+  
+    }
     
   }
 
  }
+
+ progress {
+
+  border: none;
+  border-radius: 20px;
+  height: 18px;
+  width: 289px;
+
+  @include ThemedStyles(background, SG600);
+  @include ThemedStyles(color, SR700);
+
+  @include Breakpoint(Desktop) {
+    
+    width: 1208px;
+
+  }
+
+}
+
+progress::-moz-progress-bar {
+  border-radius: 20px;
+  @include ThemedStyles(background, SG600);
+}
+
+progress::-webkit-progress-value {
+  border-radius: 20px;
+  @include ThemedStyles(background, SR700);
+}
+
+progress::-webkit-progress-bar {
+  border-radius: 20px;
+  @include ThemedStyles(background, SG600);
+}

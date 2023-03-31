@@ -13,14 +13,12 @@ const StepTwoFour = () => (
           <h1 className="Card__ContentTitle">
             Step 2 | <span>Mounting instructions</span>
           </h1>
+          <span className="Card__Divider" />
           <p className="Card__ContentText">
-            <strong>Step 5</strong>
+            <strong>Step 5 |</strong> Install computer head into bracket and rotate <strong>front wheel</strong> to test for proper function of <strong>magnet/wheel</strong> sensor alignment.
           </p>
           <p className="Card__ContentText-Left">
-            <strong>TEST.</strong> Install computer head into bracket and rotate <strong>front wheel</strong> to test for proper function of <strong>magnet/wheel</strong> sensor alignment.
-          </p>
-          <p className="Card__ContentText-Left">
-            The mph/kph indicator <strong>will flash</strong> if the sensor and magnet are <strong>properly aligned.</strong> Tighten quick ties on sensor when correct alignment is acheived.
+            
           </p>
           <div className="Card__Image">
             <StaticImage
@@ -33,12 +31,16 @@ const StepTwoFour = () => (
               style={{ marginBottom: `var(--space-3)` }}
             />
           </div>
+          <p className="Card__ContentText">
+            The mph/kph indicator <strong>will flash</strong> if the sensor and magnet are <strong>properly aligned.</strong> Tighten quick ties on sensor when correct alignment is acheived.
+          </p>
         </div>
       </div>
       <div className="Buttons">
           <Link to="/step2-3" className="Button__Outlined" >Go back</Link>
-          <Link to="/step3" className="Button">Continue</Link>
+          <Link to="/step3" className="Button">Finish</Link>
       </div>
+      <progress id="progress_form" max="100" value="100" />
     </div>
   </Layout>
 )
