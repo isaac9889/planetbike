@@ -11,11 +11,12 @@
 
 You could see the site and the PWA working here:
 
-https://build-7686a2d6-3020-4084-a542-71d5e0e3cb3f.gatsbyjs.io/
+https://planetbike.gatsbyjs.io/
 
 This is a gatsby site so to install and run on localhost do the following:
 
 yarn install -p (for installing)
+
 yarn develop (for running the project)
 
 
