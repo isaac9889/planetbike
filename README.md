@@ -6,12 +6,18 @@
 </p>
 
 <h1 align="center">
-  Isaac Ortiz Planet Bike test 
+  Isaac Ortiz Planet Bike test for Gorilla Logic
 </h1>
 
 You could see the site and the PWA working here:
 
-https://build-4c7c50d2-7ee4-461c-b94d-82a11ec7a7a8.gatsbyjs.io/
+https://planetbike.gatsbyjs.io/
+
+This is a gatsby site so to install and run on localhost do the following:
+
+yarn install -p (for installing)
+
+yarn develop (for running the project)
 
 
 <h1 align="center">
